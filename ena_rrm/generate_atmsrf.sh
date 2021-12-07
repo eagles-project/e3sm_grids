@@ -42,11 +42,11 @@ outputFileName = '${output_filename}'
 /
 EOF
 
-# Run the tool from compute node
+# Run the tool from compute node, wait for completion
 if [ ! -e $output_filename ]; then
     echo "Generating ${output_filename} with mkatmsrffile"
     cd $script_dir
-    sbatch -A ${project} slurm_gen_atmsrf.sh
+    sbatch -A ${project} --wait slurm_gen_atmsrf.sh
 fi
 
 # Convert the file to netcdf3 format if necessary:

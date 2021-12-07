@@ -1,9 +1,10 @@
 #!/bin/bash
 source config.sh   # config file
 
+# Step 0: Must specify refinement patch with png of mask (refine_file defined in config.sh)
 # Step 1: Use SQuadgen to generate the atm dynamics grid
 dyn_grid_file=${output_root}/${dyn_grid_name}.g
-$squadgen_root/SQuadGen --refine_level 5 --resolution 32 --refine_file ~/rrm/ref_spec_ena.png --output $dyn_grid_file
+$squadgen_root/SQuadGen --refine_level 2 --resolution 32 --refine_file $refine_file --invert --smooth_type SPRING --output $dyn_grid_file
 
 # Step 2A: Generate pg2 atm_grid_name:
 atm_grid_file=${output_root}/${atm_grid_name}.g

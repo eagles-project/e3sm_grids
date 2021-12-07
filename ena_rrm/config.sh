@@ -3,13 +3,7 @@
 # project details
 project=m3525
 
-# RRM grid details to specify
-dyn_grid_name=enax4v2
-atm_grid_name=${dyn_grid_name}pg2
-ocn_grid_name=oEC60to30v3
-lnd_grid_name=r05
-
-# directory structures to specify
+# directory structure
 tempest_root=${HOME}/git_repos/tempestremap
 squadgen_root=${HOME}/git_repos/SQuadgen
 output_root=${CSCRATCH}/e3sm/grids/${atm_grid_name}
@@ -18,6 +12,20 @@ e3sm_root=${HOME}/git_repos/E3SM
 hiccup_root=${HOME}/git_repos/HICCUP
 mapping_root=/project/projectdirs/e3sm/mapping
 script_dir=${PWD}
+
+###########################################
+# RRM grid details to specify
+dyn_grid_name=enax4v2
+atm_grid_name=${dyn_grid_name}pg2
+ocn_grid_name=oEC60to30v3
+lnd_grid_name=r05
+
+# refinement patch (png mask over region, assumed black/ones (squadgen will use --invert option)
+refine_file=${script_dir}/meshes/refinement_patch.png
+
+#
+###########################################
+
 
 # homme_tool
 # ...

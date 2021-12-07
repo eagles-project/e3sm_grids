@@ -5,22 +5,12 @@
 #
 # Script lightly modified from e3sm_grids/arctic_rrm/generate_mapping_files.sh authored by Ben Hillman
 #
+# ToDo: split out each map type to make it easier to toggle (maps can take awhile to generate)
+#
 # ###################################################################################################
 
 # Set paths
 source config.sh
-# conda activate hiccup_env
-
-# echo $PATH
-# nco_exe=`which ncks`
-
-# echo `which ncremap`
-# echo `which ncks`
-
-# if [ -z "${nco_exe}" ]; then
-#     echo "Couldn't find nco for some reason"
-#     export PATH="/global/homes/c/crjones/.conda/envs/hiccup_env/bin:$PATH"
-# fi
 
 atm_grid_file=${output_root}/${atm_grid_name}.g
 atm_scrip_file=${output_root}/${atm_grid_name}_scrip.nc
@@ -49,39 +39,39 @@ src_grid=${ocn_scrip_file}
 dst_grid=${atm_grid_file}
 extra=""
 map=${output_root}/map_${ocn_grid_name}_to_${atm_grid_name}_${alg_name}.${date}.nc
-# map_conserve
+map_conserve
 
 # atm to ocn
 src_grid=${atm_grid_file}
 dst_grid=${ocn_scrip_file}
 extra="--a2o"
 map=${output_root}/map_${atm_grid_name}_to_${ocn_grid_name}_${alg_name}.${date}.nc
-# map_conserve
+map_conserve
 
 # lnd to atm 
 src_grid=${lnd_scrip_file}
 dst_grid=${atm_grid_file}
 extra=""
 map=${output_root}/map_${lnd_grid_name}_to_${atm_grid_name}_${alg_name}.${date}.nc
-# if [ "${lnd_grid_name}" != "${atm_grid_name}" ]; then
-    # map_conserve
-# fi
+if [ "${lnd_grid_name}" != "${atm_grid_name}" ]; then
+    map_conserve
+fi
 
 # atm to lnd
 src_grid=${atm_grid_file}
 dst_grid=${lnd_scrip_file}
 extra=""
 map=${output_root}/map_${atm_grid_name}_to_${lnd_grid_name}_${alg_name}.${date}.nc
-# if [ "${lnd_grid_name}" != "${atm_grid_name}" ]; then
-    # map_conserve
-# fi
+if [ "${lnd_grid_name}" != "${atm_grid_name}" ]; then
+    map_conserve
+fi
 
 # ocn to lnd (for domain files)
 src_grid=${ocn_scrip_file}
 dst_grid=${lnd_scrip_file}
 extra=""
 map=${output_root}/map_${ocn_grid_name}_to_${lnd_grid_name}_${alg_name}.${date}.nc
-# map_conserve
+map_conserve
 
 
 # ##############################################
@@ -122,7 +112,7 @@ function map_nco {
 src_grid=${ocn_scrip_file}
 dst_grid=${lnd_scrip_file}
 map="${output_root}/map_${ocn_grid_name}_to_${lnd_grid_name}_${alg_name}.${date}.nc"
-# map_nco
+map_nco
 
 # ##############################################
 # Area-average maps for domain files

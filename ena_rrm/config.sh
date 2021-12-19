@@ -4,31 +4,40 @@
 project=m3525
 
 # directory structure
+script_dir=${PWD}
 tempest_root=${HOME}/git_repos/tempestremap
 squadgen_root=${HOME}/git_repos/SQuadgen
-output_root=${CSCRATCH}/e3sm/grids/${atm_grid_name}
 inputdata_root=/global/cfs/cdirs/e3sm/inputdata
 e3sm_root=${HOME}/git_repos/E3SM
 hiccup_root=${HOME}/git_repos/HICCUP
 mapping_root=/project/projectdirs/e3sm/mapping
-script_dir=${PWD}
 
 ###########################################
 # RRM grid details to specify
-dyn_grid_name=enax4v2
+dyn_grid_name=enax32v2
 atm_grid_name=${dyn_grid_name}pg2
-ocn_grid_name=oEC60to30v3
+ocn_grid_name=oRRS18to6v3
 lnd_grid_name=r05
 
 # refinement patch (png mask over region, assumed black/ones (squadgen will use --invert option)
-refine_file=${script_dir}/meshes/refinement_patch.png
+refine_file=${script_dir}/meshes/refinement_patch_v2.png
+refine_level=5
 
+# for naming mapping files
+# date=`date +%Y%m%d`
+date=20211209
+
+############################################
+# Previously defined RRM grids
+# -----------------------------------------
+# enax4v2: lnd=r05, ocn=oEC60to30v3
+# enax32v2: lnd=r05, ocn=oRRS18to6v3
 #
 ###########################################
 
+# case dependent output directory 
+output_root=${CSCRATCH}/e3sm/grids/${atm_grid_name}
 
-# homme_tool
-# ...
 
 # input scrip grid files needed for mapping (step 3)
 if [ "$lnd_grid_name" == "r0125" ]; then 

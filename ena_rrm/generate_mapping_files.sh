@@ -16,8 +16,8 @@ atm_grid_file=${output_root}/${atm_grid_name}.g
 atm_scrip_file=${output_root}/${atm_grid_name}_scrip.nc
 # Note: ocean and lnd scrip files specified in config.sh
 
-# Set date for output file names
-date=`date +'%Y%m%d'`
+# Set date for output file names (now read in from config.sh)
+# date=`date +'%Y%m%d'`
 
 # #######################################
 # Generate conservative, monotone maps

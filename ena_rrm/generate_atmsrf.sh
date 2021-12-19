@@ -28,7 +28,6 @@ fi
 # echo ${output_root}/map_1x1_to_${physics_grid}_mono.nc
 
 # Edit nml_atmsrf namelist file
-date=20211110
 output_prefix=${output_root}/atmsrf_${physics_grid}_${date}
 output_filename=${output_prefix}_n4.nc
 cat <<EOF > nml_atmsrf

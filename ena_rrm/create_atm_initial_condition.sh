@@ -26,4 +26,5 @@ topo_file=${output_root}/USGS-gtopo30_${atm_grid_name}_12xdel2.nc
 hgrid_file=${output_root}/${dyn_grid_name}.g
 
 python create_initial_condition_from_obs_ena.py --vgrid $vgrid --init_date $init_date \
+       --hgrid $atm_grid_name \
        --vgrid_dir $vgrid_dir --vgrid_file $vgrid_file --topo_file $topo_file --hgrid_file $hgrid_file

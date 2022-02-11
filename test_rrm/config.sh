@@ -11,6 +11,7 @@ inputdata_root=/global/cfs/cdirs/e3sm/inputdata
 e3sm_root=${HOME}/git_repos/E3SM
 hiccup_root=${HOME}/git_repos/HICCUP
 mapping_root=/project/projectdirs/e3sm/mapping
+homme_build=${SCRATCH}/homme
 
 ###########################################
 # RRM grid details to specify

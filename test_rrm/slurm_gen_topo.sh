@@ -13,9 +13,7 @@ source config.sh
 script_root=${PWD}
 source $script_root/.env_mach_specific.sh
 
-# homme_executable info
-homme_root=${e3sm_root}/components/homme
-homme_build=/global/cscratch1/sd/crjones/homme
+# homme_build included in config.sh
 homme_exe=${homme_build}/src/tool/homme_tool
 
 # First pass of cube_to_target

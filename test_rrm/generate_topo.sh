@@ -3,14 +3,10 @@ source config.sh
 
 SLURM_FLAGS="--wait"
 
-# Homme tool 
+# Homme tool and cube_to_target built using build_tools.sh
 script_root=${PWD}
-homme_root=${e3sm_root}/components/homme
-homme_build=/global/cscratch1/sd/crjones/homme
-homme_exe=${homme_build}/src/tool/homme_tool
 
-# to do: create scripts to build homme_tool and cube_to_target
-# create .env_mach_specific.sh if it doesn't already exist (needed for building homme_tool and/or cube_to_target
+# create .env_mach_specific.sh if it doesn't already exist
 if [ ! -e ${script_root}/.env_mach_specific.sh ]; then
     ${e3sm_root}/cime/tools/configure --machine ${machine} --compiler ${compiler}
 fi

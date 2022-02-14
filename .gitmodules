@@ -4,3 +4,6 @@
 [submodule "squadgen"]
 	path = squadgen
 	url = git@github.com:ClimateGlobalChange/squadgen.git
+[submodule "HICCUP"]
+	path = HICCUP
+	url = https://github.com/E3SM-Project/HICCUP.git
